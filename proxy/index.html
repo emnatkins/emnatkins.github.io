@@ -65,9 +65,11 @@
     </div>
   </body>
   <script>
-    var btnSUBMIT = document.getElementsByClassName("btnSUBMIT")[0]
+    var btnSUBMIT = document.getElementsByClassName("btnSUBMIT")[0];
+var inputURL = document.getElementsByClassName("inputURL")[0];
 
-btnSUBMIT.addEventListener("keydown", (e) => {
+
+inputURL.addEventListener("keydown", (e) => {
   if (e.key == "Enter") {
     go();
   }
@@ -76,7 +78,7 @@ btnSUBMIT.addEventListener("keydown", (e) => {
 btnSUBMIT.addEventListener("click", go);
 
 function go(){
-  let url = document.getElementsByClassName("inputURL")[0].value;
+  let url = inputURL.value;
 
   function bytesToBase64(bytes) {
     const binString = String.fromCodePoint(...bytes);
