@@ -65,19 +65,27 @@
     </div>
   </body>
   <script>
-    document
-      .getElementsByClassName("btnSUBMIT")[0]
-      .addEventListener("click", () => {
-        let url = document.getElementsByClassName("inputURL")[0].value;
+    var btnSUBMIT = document.getElementsByClassName("btnSUBMIT")[0]
 
-        function bytesToBase64(bytes) {
-          const binString = String.fromCodePoint(...bytes);
-          return btoa(binString);
-        }
+btnSUBMIT.addEventListener("keydown", (e) => {
+  if (e.key == "Enter") {
+    go();
+  }
+});
 
-        // Usage
-        let hashURl = bytesToBase64(new TextEncoder().encode(url));
-        window.location.href = `https://azureserv.com/__cpi.php?r=${hashURl}&__cpo=1`;
-      });
+btnSUBMIT.addEventListener("click", go);
+
+function go(){
+  let url = document.getElementsByClassName("inputURL")[0].value;
+
+  function bytesToBase64(bytes) {
+    const binString = String.fromCodePoint(...bytes);
+    return btoa(binString);
+  }
+
+  // Usage
+  let hashURl = bytesToBase64(new TextEncoder().encode(url));
+  window.location.href = `https://azureserv.com/__cpi.php?r=${hashURl}&__cpo=1`;
+}
   </script>
 </html>
